@@ -3,7 +3,7 @@ import '../components/ListItem.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import Error from "./ErrorMessage.jsx";
-import Delete from "./DeleteFinally.jsx"
+import DeleteItem from "./DeleteItem.jsx"
 
 function ItemList() {
 
@@ -84,15 +84,6 @@ function ItemList() {
         setShowDeleteItem(!showDeleteItem)
     }
 
-
-    // const doItem = (value) => {
-    //     setIsDone(!isDone);
-    //     if (!isDone) {
-    //         setItemDone([...itemDone, value]);
-    //         console.log(itemDone)
-    //     }
-    // }
-
     return (
         <>
             {error && <Error message={error} />}
@@ -153,35 +144,14 @@ function ItemList() {
                     </>
                 )}
 
-                {showDeleteItem && (
-                    <div className="">
-                        <h1 className="font-bold text-center uppercase">Cestino</h1>
-                        <ul className="p-3 card-todo">
-                            {deleteItem &&
-                                deleteItem.map((itemDelete, index) => (
-                                    <li
-                                        className={`m-1 w-full items-center flex justify-between py-2 px-4 rounded-md bg-blue-600 border-2`}
-                                        key={index}
-                                    >
-                                        {itemDelete}
-                                        <span
-                                            onClick={() => FinallyDelete(itemDelete)}
-                                            className="text-white"
-                                        >
-                                            <FontAwesomeIcon icon={faTrash} />
-                                        </span>
-                                        {itemToDelete === itemDelete && (
-                                            <Delete
-                                                item={itemToDelete}
-                                                onConfirm={() => permentalyDelete(index)}
-                                                onCancel={confirmDelete}
-                                            />
-                                        )}
-                                    </li>
-                                ))}
-                        </ul>
-                    </div>
-                )}
+                <DeleteItem
+                    showDeleteItem={showDeleteItem}
+                    deleteItem={deleteItem}
+                    FinallyDelete={FinallyDelete}
+                    itemToDelete={itemToDelete}
+                    permentalyDelete={permentalyDelete}
+                    confirmDelete={confirmDelete}
+                />
             </div>
         </>
     );
