@@ -1,0 +1,39 @@
+.container-todo {
+    height: 100vh;
+    width: 100vw;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    background-color: #DB650B;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    background-color: #f2f2f2;
+    padding: 8px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+}

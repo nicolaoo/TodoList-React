@@ -1,0 +1,20 @@
+.card-todo {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main {
+    background-color: #DB1D0B;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 1px 0px 10px 0px #E8935E;
+    width: 360px;
+}
+
+.non-interattivo {
+    pointer-events: none;
+    opacity: 0.5;
+}

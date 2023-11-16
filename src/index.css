@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* global-styles.css */
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('/path-to-your-font/font-file.woff2') format('woff2');
+    /* Altre definizioni di formati di file, peso, stile, ecc. */
+}
+
+body {
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+/* Altri stili globali se necessario */
