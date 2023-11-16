@@ -14,7 +14,7 @@ function deleteItem({ showDeleteItem, deleteItem, FinallyDelete, itemToDelete, p
                         {deleteItem &&
                             deleteItem.map((itemDelete, index) => (
                                 <li
-                                    className={`m-1 w-full items-center flex justify-between py-2 px-4 rounded-md bg-blue-600 border-2`}
+                                    className={`m-1 w-full items-center flex justify-between py-2 px-4 rounded-md bg-red-900 border-2`}
                                     key={index}
                                 >
                                     {itemDelete}

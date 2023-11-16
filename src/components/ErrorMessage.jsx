@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import '../components/ErrorMessage.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons'
 
 function Error({ message }) {
     return (
-        <div className="error bg-red-800 p-3 rounded-lg uppercase erorr">
+        <div className="error text-lg font-extrabold text-red-700 bg-amber-50 p-3 rounded-lg uppercase erorr">
             <span>
-                X
+                <FontAwesomeIcon icon={faTriangleExclamation} />
             </span>
-            <h1 className=" uppercase font-bold">
+            <h1 className=" uppercase ">
                 {message}
             </h1>
             <span>
-                X
+                <FontAwesomeIcon icon={faTriangleExclamation} />
             </span>
         </div>
     )

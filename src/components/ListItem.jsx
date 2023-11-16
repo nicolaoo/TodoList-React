@@ -41,7 +41,7 @@ function ItemList() {
 
     const confirmDelete = () => {
         // Chiudi il modulo di conferma senza eliminare definitivamente l'elemento
-        setShowDeleteItem(false);
+        setShowDeleteItem(true);
         setItemToDelete(null);
     }
 
@@ -87,7 +87,7 @@ function ItemList() {
     return (
         <>
             {error && <Error message={error} />}
-            <button onClick={toggleDeletItem} className={showDeleteItem ? "py-2 px-4 m-6 rounded-md bg-blue-600" : "py-2 px-4 m-6 rounded-md bg-red-950"}>
+            <button onClick={toggleDeletItem} className={showDeleteItem ? "py-2 px-4 m-6 rounded-md bg-red-900" : "py-2 px-4 m-6 rounded-md bg-red-900"}>
                 {showDeleteItem ? "Menu" : "Delete"}
             </button>
             <div className="main">
@@ -120,7 +120,7 @@ function ItemList() {
                             <ul className="p-3 card-todo">
                                 {todoList.map((todo, index) => (
                                     <li
-                                        className=" capitalize m-1 w-full items-center flex justify-between py-2 px-4 rounded-md bg-blue-600 border-2"
+                                        className=" capitalize m-1 w-full items-center flex justify-between py-2 px-4 rounded-md bg-red-900 border-2"
                                         key={index}
                                     >
                                         {todo}
