@@ -7,7 +7,8 @@ export default {
     theme: {
         extend: {
             colors: {
-                orange: '#DB650B', // Sostituisci con il tuo colore personalizzato
+                orange: '#DB650B',
+                darkOrange: '#DB1D0B',
             },
 
         },

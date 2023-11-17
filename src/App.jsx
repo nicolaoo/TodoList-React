@@ -1,13 +1,21 @@
 import ItemList from './components/ListItem'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import './app.css'
+import { useState } from 'react';
 
 function App() {
+  const [color, setColorBlue] = useState(false);
+
+  const cangheColor = () => {
+    setColorBlue(!color)
+  }
+
   return (
     <>
-      <div className="container-todo">
-        <ItemList />
+      <div className={`todo-list  ${!color ? "bg-orange" : "bg-emerald-900"}`}>
+        <div className="container-todo">
+          <ItemList cangheColor={cangheColor}
+            color={color} />
+        </div>
       </div>
     </>
   )

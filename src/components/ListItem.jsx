@@ -5,7 +5,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import Error from "./ErrorMessage.jsx";
 import DeleteItem from "./DeleteItem.jsx"
 
-function ItemList() {
+function ItemList({ cangheColor, color }) {
 
     const [showDeleteItem, setShowDeleteItem] = useState(false);
     const [userInput, setUserInput] = useState('');
@@ -13,6 +13,7 @@ function ItemList() {
     const [deleteItem, setDeleteItem] = useState([]);
     const [error, setError] = useState('');
     const [itemToDelete, setItemToDelete] = useState(null);
+
 
     const FinallyDelete = (value) => {
         setItemToDelete(value);
@@ -86,11 +87,18 @@ function ItemList() {
 
     return (
         <>
-            {error && <Error message={error} />}
-            <button onClick={toggleDeletItem} className={showDeleteItem ? "py-2 px-4 m-6 rounded-md bg-red-900" : "py-2 px-4 m-6 rounded-md bg-red-900"}>
-                {showDeleteItem ? "Menu" : "Delete"}
+            <button onClick={cangheColor} className={` absolute top-0 right-0 py-2 px-4 m-6 rounded-md ${color ? "bg-red-900" : " bg-emerald-700"}`}>
+                {!color ? "Green" : "Red"}
             </button>
-            <div className="main">
+            {error && <Error message={error} />}
+            <button
+                onClick={toggleDeletItem}
+                className={!color ? "py-2 px-4 m-6 rounded-md bg-red-900" : "py-2 px-4 m-6 rounded-md bg-emerald-700"}
+            >
+                {showDeleteItem ? "Menu" : "Basket"}
+            </button>
+
+            <div className={`main ${!color ? "bg-darkOrange" : " bg-green-600 shadow-none"}`}>
 
                 {!showDeleteItem && (
                     <>
@@ -111,7 +119,7 @@ function ItemList() {
                             <input
                                 onClick={handleButtonClick}
                                 type="button"
-                                className="rounded-r-md text-white bg-orange px-4 py-2"
+                                className={`rounded-r-md text-white ${!color ? "bg-orange" : "bg-lime-500"} px-4 py-2`}
                                 value="Invia"
                             />
                         </div>
@@ -120,7 +128,7 @@ function ItemList() {
                             <ul className="p-3 card-todo">
                                 {todoList.map((todo, index) => (
                                     <li
-                                        className=" capitalize m-1 w-full items-center flex justify-between py-2 px-4 rounded-md bg-red-900 border-2"
+                                        className={`capitalize m-1 w-full items-center flex justify-between py-2 px-4 rounded-md ${!color ? "bg-red-900" : " bg-emerald-900"} border-2`}
                                         key={index}
                                     >
                                         {todo}
@@ -151,6 +159,7 @@ function ItemList() {
                     itemToDelete={itemToDelete}
                     permentalyDelete={permentalyDelete}
                     confirmDelete={confirmDelete}
+                    color={color}
                 />
             </div>
         </>
