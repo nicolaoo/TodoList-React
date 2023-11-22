@@ -21,17 +21,20 @@ Questo progetto è una semplice TodoList implementata utilizzando React. La Todo
 1. Clona la repository sul tuo computer:
 
    ```bash
-   git clone https://github.com/tuonome/React-TodoList.git
+   git clone https://github.com/nicolaoo/React-TodoList.git
 
 2. Installa le dipendenze:
 
-`cd React-TodoList
-npm install`
+   ```bash
+    cd React-TodoList
+    npm install
 
 3. Avvia l'applicazione:
 
-'npm start'
-L'applicazione sarà disponibile all'indirizzo <http://localhost:3000>.
+   ```bash
+    npm start
+
+    L'applicazione sarà disponibile all'indirizzo <http://localhost:3000>.
 
 ## Contribuisci
 
