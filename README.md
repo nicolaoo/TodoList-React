@@ -33,10 +33,7 @@ Questo progetto è una semplice TodoList implementata utilizzando React. La Todo
 
    ```bash
     npm start
-<<<<<<< HEAD
 
-=======
->>>>>>> 72c36abb4adc7db7ecaf05e17340888dc5bc3970
 -
     L'applicazione sarà disponibile all'indirizzo <http://localhost:3000>.
 
