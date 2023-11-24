@@ -6,29 +6,42 @@ import Error from "./ErrorMessage.jsx";
 import DeleteItem from "./DeleteItem.jsx"
 
 function ItemList({ cangheColor, color }) {
-
+    // mostra gli elementi del cestino
     const [showDeleteItem, setShowDeleteItem] = useState(false);
+    // la stringa che scrive l'utente
     const [userInput, setUserInput] = useState('');
-    const [todoList, setTodoList] = useState([]); // Inizializza lo stato dell'elenco delle attività
+    // Inizializza lo stato dell'elenco delle attività
+    const [todoList, setTodoList] = useState([]);
+    // array contenente gli elementi eliminati
     const [deleteItem, setDeleteItem] = useState([]);
+    // errore che compare nel momento in cui l'utente non rispetta 
+    // le regole per l'invio diparole non adatte 
     const [error, setError] = useState('');
+    // elementi eliminati per sempre
     const [itemToDelete, setItemToDelete] = useState(null);
 
 
+    // funzione che gestisce il popup per la cancellazione finale dell'elemeto nel cestino
+    // e la visualizzazione della home 
     const FinallyDelete = (value) => {
         setItemToDelete(value);
         setShowDeleteItem(true);
     }
 
+
+    // funzione che gestisce la logica per la cancellazione 
+    // permanente degli elemnti nel cestino
     const permentalyDelete = (value) => {
+        // Copia l'array deleteItem per non modificarlo direttamente
         const upperToDoList = [...deleteItem];
 
         // Implementa la logica per l'eliminazione definitiva dell'elemento
         upperToDoList.splice(value, 1);
 
+        // Aggiorna lo stato di todoList con la copia aggiornata
         setDeleteItem(upperToDoList)
 
-        console.log(`Elemento ${itemToDelete} eliminato definitivamente.`);
+        // console.log(`Elemento ${itemToDelete} eliminato definitivamente.`);
         if (deleteItem.length <= 2) {
             // Chiudi il modulo di conferma
             setShowDeleteItem(false);
@@ -40,20 +53,24 @@ function ItemList({ cangheColor, color }) {
         }
     }
 
+
+    // Chiude il modulo di conferma senza eliminare definitivamente l'elemento
     const confirmDelete = () => {
-        // Chiudi il modulo di conferma senza eliminare definitivamente l'elemento
+
         setShowDeleteItem(true);
         setItemToDelete(null);
     }
 
-    // const [isDone, setIsDone] = useState(false);
-    // const [itemDone, setItemDone] = useState([]);
 
+    // Aggiorna la todo con il valore dell'input
     const handleInputChange = (e) => {
-        setUserInput(e.target.value); // Aggiorna lo stato con il valore dell'input
+        setUserInput(e.target.value);
         setError('')
     };
 
+
+    // gestisce l'invio e della todo con eventuali errori 
+    // di spaziatura e di duplicazione
     const handleButtonClick = () => {
         if (userInput.trim() === '' || userInput.length === 0) {
             setError('Inserisci una parola valida');
@@ -67,6 +84,8 @@ function ItemList({ cangheColor, color }) {
     };
 
 
+    // elimina l'elemento selezionato dall'utente 
+    // spostandolo nel cestino
     const deleteInput = (value) => {
         // Copia l'array todoList per non modificarlo direttamente
         const updatedTodoList = [...todoList];
@@ -81,6 +100,9 @@ function ItemList({ cangheColor, color }) {
         setDeleteItem([...deleteItem, todoList[value]]);
     }
 
+
+    // mostra il cestino oppure la home a seconda 
+    // del valore di showDeleteItem
     const toggleDeletItem = () => {
         setShowDeleteItem(!showDeleteItem)
     }
